@@ -19,7 +19,7 @@ namespace dotNET6_Dapper.Models
             using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 connection.Open();
-                string sqlQuery = $"SELECT * FROM [dbo].[StockList] WHERE Symbol = {symbol}";
+                string sqlQuery = $"SELECT * FROM [dbo].[StockList] WHERE Symbol = '{symbol}'";
                 var result = await connection.QueryAsync<Stock>(sqlQuery);
                 Debug.Print(sqlQuery);
 

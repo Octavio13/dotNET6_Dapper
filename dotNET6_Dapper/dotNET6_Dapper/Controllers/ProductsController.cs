@@ -26,7 +26,7 @@ namespace PVSRCC_API_Demo.Controllers
         //    return _shopContext.Products.ToArray();
         //}
 
-        [HttpGet, Route("{symbol}")]
+        [HttpGet, Route("GetStock/{symbol}")]
         public async Task<ActionResult<StockDTO>> GetStock(string symbol)
         {
             var stock = await _repository.GetStock(symbol);// Returns specific product or 404 if nothing is found, this way you get JSON information.
